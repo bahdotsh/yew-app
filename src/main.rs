@@ -2,19 +2,19 @@ use yew::prelude::*;
 
 #[function_component]
 fn App() -> Html {
-	let counter = use_state(|| 0);
+	let counters = use_state(|| 0);
 	let onclick = {
-		let counter = counter.clone();
+		let counters = counters.clone();
 		move |_| {
-			let value = *counter + 1;
-			counter.set(value);
+			let value = *counters + 1;
+			counters.set(value);
 		}
 	};
 
 	html! {
 		<div>
 			<button {onclick}> {"+1"} </button>
-			<p> {*counter} </p>
+			<p> {*counters} </p>
 		</div>
 	}
 }
